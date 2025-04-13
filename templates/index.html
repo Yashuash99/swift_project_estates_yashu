@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>All Properties</h2>
+<div class="properties">
+    {% for property in properties %}
+        <div class="card">
+            <h3>{{ property.title }}</h3>
+            <p>{{ property.description }}</p>
+            <strong>Price: ₹{{ "{:,}".format(property.price|int) }}</strong>
+
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

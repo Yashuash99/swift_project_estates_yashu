@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Edit Property</h2>
+<form method="POST" enctype="multipart/form-data">
+    <input type="text" name="title" value="{{ property.title }}" required><br>
+    <input type="number" name="price" value="{{ property.price }}" required><br>
+    <textarea name="description" required>{{ property.description }}</textarea><br>
+    <input type="file" name="image" accept="image/*"><br>
+    {% if property.image %}
+        <img src="{{ url_for('static', filename=property.image.split('static/')[-1]) }}" width="200"><br>
+    {% endif %}
+    <button type="submit">Update Property</button>
+</form>
+{% endblock %}
